@@ -1,5 +1,24 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## SmartStay+ prototype
+
+The SmartStay+ navigation opens a trip hub with listing-detail readiness, a per-stay checklist, care/accessibility request drafts, arrival essentials lists, a trip budget tracker, and issue-report drafts. The budget tracks linked reservations plus manually entered expenses, with an equal-share estimate. Readiness is calculated from information already present in a listing; it is not an independent inspection.
+
+Trip checklist progress, budget settings, expense entries and request drafts are stored in browser `localStorage`, scoped to the signed-in user (or the visitor session). These tools are a front-end prototype: saving a request does not contact a provider or support team, place an order, charge a payment method, or provide an SLA. Real fulfillment requires authenticated backend storage and integrations with verified local partners.
+
+## Windows desktop app
+
+The Electron desktop wrapper runs the production Next.js standalone server locally. Build a Windows installer with:
+
+```bash
+npm install
+npm run desktop:win
+```
+
+The installer is written to `release/SmartStay-Setup-0.1.0.exe`. To run the desktop app from the current checkout for testing, use `npm run desktop:run`. The app needs internet access for online services; SmartStay+ prototype data remains in the desktop app's local browser storage.
+
+The installer is not code-signed, so Windows may show an unknown-publisher or SmartScreen warning.
+
 ## Getting Started
 
 First, run the development server:

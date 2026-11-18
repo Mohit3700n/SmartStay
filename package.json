@@ -2,13 +2,20 @@
   "name": "smartstay",
   "version": "0.1.0",
   "private": true,
+  "main": "desktop-app/main.mjs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "desktop:prepare": "node scripts/prepare-desktop.mjs",
+    "desktop:build": "next build && npm run desktop:prepare",
+    "desktop:run": "npm run desktop:build && electron .",
+    "desktop:win": "npm run desktop:build && electron-builder --projectDir desktop-app --win nsis"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "lucide-react": "^1.73.0",
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"
@@ -18,6 +25,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "electron": "45.3.3",
+    "electron-builder": "^26.18.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
     "tailwindcss": "4.3.3",
